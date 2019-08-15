@@ -42,19 +42,21 @@ function insere($table, $obj, $conn){
         
         if($obj[$key] == end($obj)) {
             $cols .= $key;
-            $vals .= $value;
+            $vals .= "'".$value."'";
         }
         else {
             $cols .= $key.", ";
-            $vals .= $value.", ";
+            $vals .= "'".$value."', ";
         }
     }
 
     $sql .= $cols.") VALUES (".$vals.");";
 
+
     $conn->query($sql);
 
     if ($result->affected_rows > 0) {
+
         return "Registro inserido com sucesso!";
     }
 

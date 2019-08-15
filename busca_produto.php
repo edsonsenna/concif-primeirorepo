@@ -1,7 +1,4 @@
 <?php 
-
-$_GET["id"]
-
 ?>
 
 <!DOCTYPE html>
