@@ -78,5 +78,32 @@ function delete($table, $id, $conn){
 
 }
 
+function atualiza($table, $obj, $conn){
+
+    $sql = "UPDATE TABLE ".$table;
+
+    foreach($obj as $key => $value){
+        
+        if($key != "id") {
+            $sql .= " SET ".$key." = ".$value." "; 
+        }
+    }
+
+    $sql .= " WHERE id = ".$obj["id"];
+
+
+    $result = $conn->query($sql);
+
+    if ($conn->affected_rows > 0) {
+
+        return "Registro [".$id."] atualizado com sucesso!";
+    }
+
+    return "Falha ao atualizar registro!";
+
+
+}
+
+
 
 ?>

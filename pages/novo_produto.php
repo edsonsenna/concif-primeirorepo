@@ -9,9 +9,8 @@
 <body>
 
     <form action="../actions/cadastra_produto.php" method="POST">
-        <input type="number" name="id" id="id">
+        <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome">
-        <input type="text" name="data_cadastro" id="data_cadastro">
         <input type="submit" value="Cadastrar">
     </form>
     

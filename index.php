@@ -5,7 +5,7 @@ include_once("./db/crud.php");
 
 $conn = open();
 
-$found = getAll('produtos_teste', $conn);
+$found = getAll('produtos', $conn);
 
 close($conn);
 ?>
@@ -21,13 +21,15 @@ close($conn);
 </head>
 <body>
     <h1>Listagem de Produtos</h1>
-    <h2>Erros - <?php if(isset($_SESSION["message"])) echo $_SESSION["message"];?> </h2>
+    <h2><?php if(isset($_SESSION["message"])) echo "Erros - ". $_SESSION["message"];?> </h2>
     <a href="./pages/novo_produto.php">Novo Produto</a>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Nome</th>
+                <th>Data Cadastro</th>
+                <th>Acoes</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +37,17 @@ close($conn);
                 <tr>
                     <td><?php echo $prod["id"]; ?></td>
                     <td><?php echo $prod["nome"]; ?></td>
+                    <td><?php echo $prod["data_cadastro"]; ?></td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="./pages/editar_produto.php?id=<?php echo $prod["id"]; ?>">Editar</a>
+                            </li>
+                            <li>
+                                <a href="./pages/excluir_produto.php?id=<?php echo $prod["id"]; ?>">Excluir</a>
+                            </li>
+                        </ul>
+                    </td>
                 </tr>
             <?php }?>
         </tbody>

@@ -10,13 +10,13 @@ $conn = open();
 
 
 $obj = array(
-    "nome" => $_POST["nome"],
-    "data_cadastro" => date("Y-m-d h:i:s")
+    "id" => $_POST["id"],
+    "nome" => $_POST["nome"]
 );
 
-$result = insere('produtos', $obj, $conn);
+$result = atualiza('produtos', $obj, $conn);
 
-
+var_dump($result);
 
 $_SESSION["message"] = $result;
 
