@@ -29,6 +29,7 @@ close($conn);
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Data Cadastro</th>
+                <th>Valor</th>
                 <th>Acoes</th>
             </tr>
         </thead>
@@ -38,13 +39,14 @@ close($conn);
                     <td><?php echo $prod["id"]; ?></td>
                     <td><?php echo $prod["nome"]; ?></td>
                     <td><?php echo $prod["data_cadastro"]; ?></td>
+                    <td>R$ <?php echo $prod["valor"]; ?></td>
                     <td>
                         <ul>
                             <li>
                                 <a href="./pages/editar_produto.php?id=<?php echo $prod["id"]; ?>">Editar</a>
                             </li>
                             <li>
-                                <a href="./pages/excluir_produto.php?id=<?php echo $prod["id"]; ?>">Excluir</a>
+                                <a href="./actions/exclui_produto.php?id=<?php echo $prod["id"]; ?>">Excluir</a>
                             </li>
                         </ul>
                     </td>

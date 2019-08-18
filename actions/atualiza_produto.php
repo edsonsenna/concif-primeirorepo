@@ -11,12 +11,12 @@ $conn = open();
 
 $obj = array(
     "id" => $_POST["id"],
-    "nome" => $_POST["nome"]
+    "nome" => $_POST["nome"],
+    "valor" => $_POST["valor"]
 );
 
 $result = atualiza('produtos', $obj, $conn);
 
-var_dump($result);
 
 $_SESSION["message"] = $result;
 

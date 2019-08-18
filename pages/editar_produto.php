@@ -29,6 +29,8 @@ close($conn);
         <label for="nome">Nome:</label>
         <input type="hidden" name="id" value="<?php echo $produto[0]["id"]; ?>">
         <input type="text" name="nome" id="nome" value="<?php echo $produto[0]["nome"]; ?>">
+        <label for="valor">Valor:</label>
+        <input type="text" name="valor" id="valor" value="<?php echo $produto[0]["valor"]; ?>">
         <input type="submit" value="Atualizar">
     </form>
 </body>

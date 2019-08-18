@@ -10,7 +10,10 @@
 
     <form action="../actions/cadastra_produto.php" method="POST">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome">
+        <input type="text" name="nome" id="nome/ ">
+
+        <label for="valor">Valor:</label>
+        <input type="number" name="valor" id="valor" />
         <input type="submit" value="Cadastrar">
     </form>
     

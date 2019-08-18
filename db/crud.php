@@ -52,7 +52,6 @@ function insere($table, $obj, $conn){
 
     $sql .= $cols.") VALUES (".$vals.");";
 
-
     $conn->query($sql);
 
     if ($result->affected_rows > 0) {
@@ -67,6 +66,7 @@ function delete($table, $id, $conn){
 
     $sql = "DELETE FROM ".$table." WHERE id = ".$id.";";
 
+
     $result = $conn->query($sql);
 
     if ($conn->affected_rows > 0) {
@@ -80,17 +80,23 @@ function delete($table, $id, $conn){
 
 function atualiza($table, $obj, $conn){
 
-    $sql = "UPDATE TABLE ".$table;
+    $sql = "UPDATE ".$table. " SET ";
 
     foreach($obj as $key => $value){
         
-        if($key != "id") {
-            $sql .= " SET ".$key." = ".$value." "; 
+
+        if($obj[$key] == end($obj)) {
+            $sql .= " ".$key." = '".$value."'  "; 
         }
+        else {
+            if($key != "id") {
+                $sql .= " ".$key." = '".$value."', "; 
+            }
+        }
+        
     }
 
     $sql .= " WHERE id = ".$obj["id"];
-
 
     $result = $conn->query($sql);
 
